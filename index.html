@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>칠만표 옥상방수 자재 계산기</title>
+  <title>칠만표 옥상방수 자재 계산기 [우레탄면 위]</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 30px; line-height: 1.6; }
     h2 { font-size: 24px; margin-bottom: 10px; }
@@ -17,7 +17,7 @@
   </style>
 </head>
 <body>
-  <h2>칠만표 옥상방수 자재 계산기 [우레탄 바닥면]</h2>
+  <h2>칠만표 옥상방수 자재 계산기 [우레탄면 위]</h2>
   <p>평수를 입력하시면 필요한 자재 수량이 출력됩니다</p>
 
   <input type="number" id="pyeongInput" placeholder="예: 30"> 평
@@ -53,19 +53,19 @@
 
   <script>
     const materialTable = {
-      10: { cmw8_18: '1개', cmw8_10: '', cmw1a: '4세트', cmw1c_18: '1개', cmw1c_10: '' },
-      15: { cmw8_18: '1개', cmw8_10: '', cmw1a: '6세트', cmw1c_18: '1개', cmw1c_10: '1개' },
-      20: { cmw8_18: '1개', cmw8_10: '1개', cmw1a: '7세트', cmw1c_18: '2개', cmw1c_10: '' },
-      25: { cmw8_18: '2개', cmw8_10: '', cmw1a: '9세트', cmw1c_18: '2개', cmw1c_10: '' },
-      30: { cmw8_18: '2개', cmw8_10: '', cmw1a: '11세트', cmw1c_18: '2개', cmw1c_10: '1개' },
-      35: { cmw8_18: '2개', cmw8_10: '1개', cmw1a: '13세트', cmw1c_18: '3개', cmw1c_10: '' },
-      40: { cmw8_18: '2개', cmw8_10: '1개', cmw1a: '14세트', cmw1c_18: '3개', cmw1c_10: '1개' },
-      45: { cmw8_18: '3개', cmw8_10: '', cmw1a: '16세트', cmw1c_18: '4개', cmw1c_10: '' },
-      50: { cmw8_18: '3개', cmw8_10: '1개', cmw1a: '18세트', cmw1c_18: '4개', cmw1c_10: '1개' },
-      55: { cmw8_18: '3개', cmw8_10: '1개', cmw1a: '20세트', cmw1c_18: '5개', cmw1c_10: '' },
-      60: { cmw8_18: '4개', cmw8_10: '', cmw1a: '21세트', cmw1c_18: '5개', cmw1c_10: '' },
-      65: { cmw8_18: '4개', cmw8_10: '', cmw1a: '23세트', cmw1c_18: '6개', cmw1c_10: '' },
-      70: { cmw8_18: '4개', cmw8_10: '1개', cmw1a: '25세트', cmw1c_18: '6개', cmw1c_10: '' },
+      10: { a: '4', b20: '1', b10: '', c18: '1개', c10: '' },
+      15: { a: '4', b20: '1', b10: '', c18: '1개', c10: '1개' },
+      20: { a: '6', b20: '1', b10: '1', c18: '2개', c10: '' },
+      25: { a: '8', b20: '2', b10: '', c18: '2개', c10: '' },
+      30: { a: '8', b20: '2', b10: '', c18: '2개', c10: '1개' },
+      35: { a: '10', b20: '2', b10: '1', c18: '3개', c10: '' },
+      40: { a: '12', b20: '3', b10: '', c18: '3개', c10: '1개' },
+      45: { a: '14', b20: '3', b10: '1', c18: '4개', c10: '' },
+      50: { a: '14', b20: '3', b10: '1', c18: '4개', c10: '1개' },
+      55: { a: '16', b20: '4', b10: '', c18: '5개', c10: '' },
+      60: { a: '18', b20: '4', b10: '1', c18: '5개', c10: '' },
+      65: { a: '18', b20: '4', b10: '1', c18: '6개', c10: '' },
+      70: { a: '20', b20: '5', b10: '', c18: '6개', c10: '' },
     };
 
     function calculateMaterials() {
@@ -76,10 +76,10 @@
         return;
       }
       const m = materialTable[p];
-      r.innerHTML = `<p><strong>안녕하세요? 칠만표방수제입니다.<br>${p}평 기준 필요한 자재를 안내해드립니다.</strong></p><br>
-        <p>▶ <strong>CMW-8 (모체강화제)</strong><br>18kg: ${m.cmw8_18}${m.cmw8_10 ? '<br>10kg: ' + m.cmw8_10 : ''}</p>
-        <p>▶ <strong>CMW-1A (강력접착방수제)</strong><br>${m.cmw1a}</p>
-        <p>▶ <strong>CMW-1C (침투접착방수제)</strong><br>18kg: ${m.cmw1c_18}${m.cmw1c_10 ? '<br>10kg: ' + m.cmw1c_10 : ''}</p>`;
+      r.innerHTML = `<p><strong>안녕하세요? 칠만표방수제입니다.<br>${p}평 기준, 우레탄면 위 방수 시공에 필요한 자재를 안내해드립니다.</strong></p>
+        <p>▶ <strong>CMW-1A (강력접착방수제 분말)</strong><br>${m.a}세트</p>
+        <p>▶ <strong>CMW-2 (초강력 다목적 혼합용 방수제)</strong><br>20kg: ${m.b20}${m.b10 ? '<br>10kg: ' + m.b10 : ''}</p>
+        <p>▶ <strong>CMW-1C (침투접착방수제)</strong><br>18kg: ${m.c18}${m.c10 ? '<br>10kg: ' + m.c10 : ''}</p>`;
     }
   </script>
 </body>
